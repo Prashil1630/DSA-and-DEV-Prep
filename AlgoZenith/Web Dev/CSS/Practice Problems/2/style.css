@@ -1,0 +1,36 @@
+#main-header {
+    background-color: lightblue;
+    text-align: center;
+}
+
+.content {
+    background-color: antiquewhite;
+    font-family: Georgia, serif;
+}
+
+.post-title{
+    color: darkgreen;
+    font-size: 1.5rem;
+}
+.post-body{
+    color: purple;
+    line-height: 1.6;
+}
+
+p {
+    color: darkslategray;
+}
+
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+a:hover {
+    color: red;
+}
+
+p.post-body {
+    color: purple;
+}

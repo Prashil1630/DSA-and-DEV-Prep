@@ -1,0 +1,24 @@
+body {
+    background-color: floralwhite;
+}
+
+h1 {
+    color: orange;
+    text-align: center;
+    font-size: 3rem;
+}
+
+h2 {
+    color: chocolate;
+    text-align: center;
+    font-size: 2rem;
+}
+
+p {
+    color: teal;
+    font-size: 1.5rem;
+}
+
+.highlight {
+    background-color: yellow;
+}

@@ -1,0 +1,36 @@
+body{
+    background-color: #f4f4f4;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #333;
+    text-align: center;
+    margin: 1.5rem;
+}
+
+.quote-container{
+    margin: 1.2rem;
+    width: 80%;
+}
+
+.title{
+    font-family: 'Pacifico', cursive;
+    font-size: 24px;
+    font-weight: bold;
+    color: hsl(0, 82%, 59%);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+.quote{
+    font-size: 1.6rem;
+    font-style: italic;
+    color: rgba(51, 102, 153, 0.8);
+    margin-top: 1.3rem;
+}
+
+.author{
+    color: teal;
+    font-weight: bold;
+    font-size: 1.4rem;
+}

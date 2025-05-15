@@ -1,0 +1,12 @@
+T(n)=aT(n/b) 0(n^k log^p n)
+
+if a > bk, then T(n) = θ(nlogba)
+
+if a = bk, then 
+(a) if p > -1, then T(n) = θ(nlogba logp+1n) 
+(b) if p = -1, then T(n) = θ(nlogba loglogn) 
+(c) if p < -1, then T(n) = θ(nlogba) 
+ 
+if a < bk, then 
+(a) if p >= 0, then T(n) = θ(nk logpn) 
+(b) if p < 0, then T(n) = θ(nk) 
