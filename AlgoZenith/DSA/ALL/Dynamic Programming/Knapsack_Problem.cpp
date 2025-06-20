@@ -1,13 +1,31 @@
 /* Classical Knapsack Problem 
-Add Ons :
+Add Ons/Variations :
         1. Print the max value ans the index of items that can be included in the knapsack and its count
         2. 0-INF Knapsack
         3. Max k items can be taken
         4. Sum of the weight of the item taken should be divisible by m
         5. If ith item is taken the i+1 th item cannot be taken
 
+1. Print the max value ans the index of items that can be included in the knapsack and its count
 since we are using dp once the dp is calculated or filled then all the recursive call will be of O(1) as the will mostly lie in the pruning, base case, cache check
 NOTE : but while generating solution do not directly check on dp instead make a recursive call(good practice as direct dp check may work here but not always)
+
+2. 0-INF Knapsack
+For 0-inf knapsack there can be mutiple appraches like 
+    a. loop on an item and check for it val and return the max but it is more costly as O(n*w^2) since there can be w transitions more
+    b. if the item is taken then call rec with i itself not on i+1 it is more optimal as it has complexity of O(nw)
+
+3. Max k items can be taken
+There is one more constraint so pass it and change the dp accordingly
+here items_left is passed and while taking an item check whether the items_left > 0 then only take 
+
+4. Sum of the weight of the item taken should be divisible by m
+Calculate the sum of items taken by Total weight W - X and use the table for base check :
+    a. Valid return 0
+    b. Invalid Return -INF
+
+5. If ith item is taken the i+1 th item cannot be taken
+If an item is taken then make call for i+2 th item instead of i+1 th item
 */
 
 #include <bits/stdc++.h>
