@@ -4,6 +4,7 @@ Add Ons :
         2. 0-INF Knapsack
         3. Max k items can be taken
         4. Sum of the weight of the item taken should be divisible by m
+        5. If ith item is taken the i+1 th item cannot be taken
 
 since we are using dp once the dp is calculated or filled then all the recursive call will be of O(1) as the will mostly lie in the pruning, base case, cache check
 NOTE : but while generating solution do not directly check on dp instead make a recursive call(good practice as direct dp check may work here but not always)
@@ -105,22 +106,36 @@ vector<int> solution;
 //     return DP[i][x][itemsLeft] = ans;
 // }
 
-// 4. Sum of items taken should be divisible by m
-int rec(int i, int x, int itemsLeft){
+// // 4. Sum of items taken should be divisible by m
+// int rec(int i, int x, int itemsLeft){
+//     // pruning
+//     // base case
+//     if(i == n) {
+//         int sumOfItemsTaken = W - x;
+//         if(sumOfItemsTaken % m == 0) return 0;
+//         else return -INF;
+//     }
+//     // cache check
+//     if(DP[i][x][itemsLeft] != -1) return DP[i][x][itemsLeft];
+//     // transition
+//     int ans = rec(i+1, x, itemsLeft);
+//     if(w[i] <= x && itemsLeft > 0) ans = max(ans, v[i] + rec(i+1, x - w[i], itemsLeft-1));
+//     // save and return
+//     return DP[i][x][itemsLeft] = ans;
+// }
+
+// 5. If ith item is taken the i+1 th item cannot be taken
+int rec(int i, int x){
     // pruning
     // base case
-    if(i == n) {
-        int sumOfItemsTaken = W - x;
-        if(sumOfItemsTaken % m == 0) return 0;
-        else return -INF;
-    }
+    if(i == n) return 0;
     // cache check
-    if(DP[i][x][itemsLeft] != -1) return DP[i][x][itemsLeft];
+    if(dp[i][x] != -1) return dp[i][x];
     // transition
-    int ans = rec(i+1, x, itemsLeft);
-    if(w[i] <= x && itemsLeft > 0) ans = max(ans, v[i] + rec(i+1, x - w[i], itemsLeft-1));
+    int ans = rec(i+1, x);
+    if(w[i] <= x) ans = max(ans, v[i] + rec(i+2, x - w[i]));            // Only change if ith item taken then call for i+2 th item
     // save and return
-    return DP[i][x][itemsLeft] = ans;
+    return dp[i][x] = ans;
 }
 
 void solve() {
@@ -141,10 +156,14 @@ void solve() {
     // cin >> k;
     // cout << rec(0, W, k) << endl;
 
-    // 4. Sum of items taken should be divsible by m
-    memset(DP, -1, sizeof(DP));
-    cin >> k >> m;
-    cout << rec(0, W, k) << endl;
+    // // 4. Sum of items taken should be divsible by m
+    // memset(DP, -1, sizeof(DP));
+    // cin >> k >> m;
+    // cout << rec(0, W, k) << endl;
+
+    // 5. If ith item is taken the i+1 th item cannot be taken
+    memset(dp, -1, sizeof(dp));
+    cout << rec(0, W) << endl;
 }
 
 signed main() {
